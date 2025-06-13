@@ -239,6 +239,8 @@ Example Data:
 
 ## Page.Load
 
+![](images/PageLoad.png)
+
 1. Drag a _List_ action to the event handler
 2. Assign the MasterData type to the _List_ _ItemType_ property
 3. Assing the master DataGrid data to the _List_
@@ -267,8 +269,6 @@ JSON.stringify(MapItem.children);
     1. MasterDataGridClass: The unique classname you assigned to the master _DataGrid_ above
     2. DetailDataGridClass: The unique classname you assigned to the details _DataGrid_ above
     3. DetailDataColumnName: The name of the hidden column where the details data is stored in the master _DataGrid_ (e.g. children)
-
-![](images/PageLoad.png)
 
 ## CSS
 
