@@ -9,11 +9,17 @@ https://github.com/user-attachments/assets/da6dd924-2211-4ea4-8272-b9c9728910eb
 -   [Use When](#use-when)
 -   [Version](#version)
 -   [Setup](#setup)
-   -   [Application Setup](#application-setup)
-   -   [Global Script](#global-script)
-   -   [Types Setup](#types-setup)
-   -   [Page](#page)
-   -   [Page.Load](#page.load)
+    -   [Application Setup](#application-setup)
+    -   [Global Script](#global-script)
+    -   [Types Setup](#types-setup)
+    -   [Page](#page)
+    -   [Page.Load](#page.load)
+-   [CSS](#css)
+    -   [Before v6.12](#before-v612)
+    -   [v6.12+](#v612)
+    -   [Customising CSS](#customising-css)
+-   [Upgrading Stadium Repos](#upgrading-stadium-repos)
+-   [Notes](#notes)
 
 # Use When
 
