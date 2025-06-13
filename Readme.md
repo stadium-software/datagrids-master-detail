@@ -25,7 +25,7 @@ https://github.com/user-attachments/assets/da6dd924-2211-4ea4-8272-b9c9728910eb
 
 1. Users want to locate a set of child records by scanning through a set of parent records
 2. Both DataGrids are narrow enough to fit next to each other in the viewport
-3. The data can be formatted into a JSON list of objects with a nested list of child objects as described below
+3. The data can be formatted into a JSON list of objects with a nested list of child objects as [described below](#types-setup)
 
 # Version
 
