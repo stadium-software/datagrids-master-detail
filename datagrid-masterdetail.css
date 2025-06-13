@@ -1,0 +1,14 @@
+.stadium-masterdetail-master, 
+.stadium-masterdetail-detail {
+	max-height: max-content;
+	table.table-striped > tbody > tr.selected-row {
+		background-color: var(--datagrid-masterdetail-master-selected-row-background-color, var(--DATA-GRID-SELECTED-ROW-BACKGROUND-COLOR, #dcedff));
+	}
+	table.table-striped > tbody > tr:hover {
+	background-color: var(--datagrid-masterdetail-hover-background-color, var(--DARKER-GREY, #dddddd));
+	}
+	table.table-striped > tbody > tr.child-table-row,
+	table.table-striped > tbody > tr.child-table-row:hover {
+		background-color: transparent;
+	}
+}
