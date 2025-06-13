@@ -4,7 +4,7 @@ This module provides for the display of two related DataGrids, a Master DataGrid
 
 ## Contents <!-- omit in toc -->
 
--   [Use](#use)
+-   [Use When](#use-when)
 -   [Version](#version)
 -   [Setup](#setup)
    -   [Application Setup](#application-setup)
@@ -13,9 +13,7 @@ This module provides for the display of two related DataGrids, a Master DataGrid
    -   [Page](#page)
    -   [Page.Load](#page.load)
 
-# Use
-
-Use when
+# Use When
 
 -   Users want to locate a set of child records by scanning through a set of parent records
 -   Both DataGrids are narrow enough to fit next to each other in the viewport
