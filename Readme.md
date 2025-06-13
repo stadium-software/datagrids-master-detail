@@ -2,6 +2,8 @@
 
 This module provides for the display of two related DataGrids, a Master DataGrid and a Details DataGrid. It provides users with a way to scan parent records to locate a set of related child records.
 
+https://github.com/user-attachments/assets/43d93066-ec5c-48b6-a5af-5c92d252b1a4
+
 ## Contents <!-- omit in toc -->
 
 -   [Use When](#use-when)
