@@ -243,20 +243,19 @@ Example Data:
 
 1. Drag a _List_ action to the event handler
 2. Assign the MasterData type to the _List_ _ItemType_ property
-3. Assing the master DataGrid data to the _List_
-4. Assign the data to the _List_ _Value_ property
+3. Assign the data to the _List_ _Value_ property
 
 ![](images/DataList.png)
 
-5. Drag a _SetValue_ action under _List_ action
+4. Drag a _SetValue_ action under _List_ action
     1. Target: The Data property of your Master _DataGrid_
     2. Value: The _List_ you just created
-6. On the _Value_ property, select the _FieldMapping_ option in the dropdown
+5. On the _Value_ property, select the _FieldMapping_ option in the dropdown
 
 ![](images/SetValueFieldMapping.png)
 
-7. In the _FieldMapping_ editor, assign the master data properties to the DataGrid columns
-8. For the details column, transform the details data JSON objects array to a string as shown below
+6. In the _FieldMapping_ editor, assign the master data properties to the DataGrid columns
+7. For the details column, transform the details data JSON objects array to a string as shown below
 
 ```javascript
 JSON.stringify(MapItem.children);
@@ -264,8 +263,8 @@ JSON.stringify(MapItem.children);
 
 ![](images/FieldMapping.png)
 
-9. Drag the Global Script called "MasterDetail" into the event handler
-10. Provide values for the script properties
+8. Drag the Global Script called "MasterDetail" into the event handler
+9. Provide values for the script properties
     1. MasterDataGridClass: The unique classname you assigned to the master _DataGrid_ above
     2. DetailDataGridClass: The unique classname you assigned to the details _DataGrid_ above
     3. DetailDataColumnName: The name of the hidden column where the details data is stored in the master _DataGrid_ (e.g. children)
