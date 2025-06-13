@@ -223,6 +223,8 @@ Example Data:
 
 ## Page
 
+![](images/PageControls.png)
+
 1. Drag a _Flexbox_ control to a page
 2. Drag a _DataGrid_ control into the _Flexbox_ control (the master _DataGrid_)
 3. Assign a unique class to the _DataGrid_ control classes property
@@ -234,8 +236,6 @@ Example Data:
 6. Drag a second _DataGrid_ control into the _Flexbox_ control and place it next to first one (the details _DataGrid_)
 7. Assign a unique class to the details _DataGrid_ control classes property
 8. Define the columns for the the details _DataGrid_
-
-![](images/PageControls.png)
 
 ## Page.Load
 
