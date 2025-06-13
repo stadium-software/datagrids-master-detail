@@ -166,8 +166,8 @@ function addClickEvent(e) {
 
 ## Types Setup
 
-1. Create a type (DetailsData) with properties that match your **details** _DataGrid_ columns (orange)
-2. Create another type (MasterData) with properties that match your **master** _DataGrid_ columns (yellow)
+1. Create a type (e.g. DetailsData) with properties that match your **details** _DataGrid_ columns (orange)
+2. Create another type (e.g. MasterData) with properties that match your **master** _DataGrid_ columns (yellow)
 3. Assign the _Details_ type to the Details property of your Master type as a _List_ (purple)
 
 Example Types:
