@@ -6,20 +6,19 @@ https://github.com/user-attachments/assets/da6dd924-2211-4ea4-8272-b9c9728910eb
 
 ## Contents <!-- omit in toc -->
 
--   [Use When](#use-when)
--   [Version](#version)
--   [Setup](#setup)
-    -   [Application Setup](#application-setup)
-    -   [Global Script](#global-script)
-    -   [Types Setup](#types-setup)
-    -   [Page](#page)
-    -   [Page.Load](#page.load)
--   [CSS](#css)
-    -   [Before v6.12](#before-v612)
-    -   [v6.12+](#v612)
-    -   [Customising CSS](#customising-css)
--   [Upgrading Stadium Repos](#upgrading-stadium-repos)
--   [Notes](#notes)
+1. [Use When](#use-when)
+2. [Version](#version)
+   1. [Changes](#changes)
+3. [Setup](#setup)
+   1. [Application Setup](#application-setup)
+   2. [Global Script](#global-script)
+   3. [Types Setup](#types-setup)
+   4. [Page](#page)
+   5. [Page.Load](#pageload)
+   6. [CSS](#css)
+      1. [Customising CSS](#customising-css)
+   7. [Upgrading Stadium Repos](#upgrading-stadium-repos)
+   8. [Notes](#notes)
 
 # Use When
 
@@ -28,8 +27,10 @@ https://github.com/user-attachments/assets/da6dd924-2211-4ea4-8272-b9c9728910eb
 3. The data can be formatted into a JSON list of objects with a nested list of child objects as [described below](#types-setup)
 
 # Version
+1.1
 
-Initial 1.0
+## Changes
+1.1 Integrated CSS with script
 
 # Setup
 
@@ -48,7 +49,7 @@ Initial 1.0
 4. Add the Javascript below into the JavaScript code property
 
 ```javascript
-/* Stadium Script v1.0 https://github.com/stadium-software/datagrids-master-detail */
+/* Stadium Script v1.1 https://github.com/stadium-software/datagrids-master-detail */
 let scope = this;
 let dgMasterClassName = "." + ~.Parameters.Input.MasterDataGridClass;
 let dgDetailClassName = "." + ~.Parameters.Input.DetailDataGridClass;
@@ -66,7 +67,7 @@ if (dg.length == 0) {
     return false;
 }
 dg = dg[0];
-dg.classList.add("parent-grid-master-detail");
+dg.classList.add("stadium-masterdetail-master");
 let dgDetail = document.querySelectorAll(dgDetailClassName);
 if (dgDetail.length == 0) {
     console.error("The class '" + dgDetailClassName + "' not is assigned any DataGrids.");
@@ -76,6 +77,7 @@ if (dgDetail.length == 0) {
     return false;
 }
 dgDetail = dgDetail[0];
+dgDetail.classList.add("stadium-masterdetail-detail");
 let getObjectName = (obj) => {
     let objname = obj.id.replace("-container", "");
     do {
@@ -96,6 +98,7 @@ let options = {
 observer = new MutationObserver(setupEventListeners);
 let table = dg.querySelector("table");
 observer.observe(table, options);
+loadCSS();
 setupEventListeners();
 dg.addEventListener("click", function(e) {
     let tbodyMaster = e.target.closest(dgMasterClassName + " table tbody");
@@ -167,6 +170,31 @@ function addClickEvent(e) {
             assignData(row);
         }
     }
+}
+function loadCSS() {
+    let moduleID = "stadium-master-detail";
+    if (!document.getElementById(moduleID)) {
+        let cssMain = document.createElement("style");
+        cssMain.id = moduleID;
+        cssMain.type = "text/css";
+        cssMain.textContent = `
+.stadium-masterdetail-master, 
+.stadium-masterdetail-detail {
+	max-height: max-content;
+	table.table-striped > tbody > tr.selected-row {
+		background-color: var(--datagrid-masterdetail-master-selected-row-background-color, var(--DATA-GRID-SELECTED-ROW-BACKGROUND-COLOR, #dcedff));
+	}
+	table.table-striped > tbody > tr:hover {
+	background-color: var(--datagrid-masterdetail-hover-background-color, var(--DARKER-GREY, #dddddd));
+	}
+	table.table-striped > tbody > tr.child-table-row,
+	table.table-striped > tbody > tr.child-table-row:hover {
+		background-color: transparent;
+	}
+}        
+        `;
+        document.head.appendChild(cssMain);
+    }   
 }
 ```
 
@@ -277,28 +305,7 @@ JSON.stringify(MapItem.children);
 
 ## CSS
 
-The CSS below is required for the correct functioning of the module. Variables exposed in the [_datagrid-masterdetail-variables.css_](datagrid-masterdetail-variables.css) file can be [customised](#customising-css).
-
-### Before v6.12
-
-1. Create a folder called "CSS" inside of your Embedded Files in your application
-2. Drag the two CSS files from this repo [_datagrid-masterdetail-variables.css_](datagrid-masterdetail-variables.css) and [_datagrid-masterdetail.css_](datagrid-masterdetail.css) into that folder
-3. Paste the link tags below into the _head_ property of your application
-
-```html
-<link rel="stylesheet" href="{EmbeddedFiles}/CSS/datagrid-masterdetail.css" />
-<link rel="stylesheet" href="{EmbeddedFiles}/CSS/datagrid-masterdetail-variables.css" />
-```
-
-### v6.12+
-
-1. Create a folder called "CSS" inside of your Embedded Files in your application
-2. Drag the CSS files from this repo [_datagrid-masterdetail.css_](datagrid-masterdetail.css) into that folder
-3. Paste the link tag below into the _head_ property of your application
-
-```html
-<link rel="stylesheet" href="{EmbeddedFiles}/CSS/datagrid-masterdetail.css" />
-```
+Variables exposed in the [_datagrid-masterdetail-variables.css_](datagrid-masterdetail-variables.css) file can be [customised](#customising-css).
 
 ### Customising CSS
 
@@ -314,8 +321,6 @@ The CSS below is required for the correct functioning of the module. Variables e
 
 6. Add the file to the "CSS" inside of your Embedded Files in your application
 
-**NOTE: Do not change any of the CSS in the 'datagrid-masterdetail.css' file**
-
 ## Upgrading Stadium Repos
 
 Stadium Repos are not static. They change as additional features are added and bugs are fixed. Using the right method to work with Stadium Repos allows for upgrading them in a controlled manner.
@@ -324,4 +329,4 @@ How to use and update application repos is described here: [Working with Stadium
 
 ## Notes
 
-The use of other DataGrid modules in conjuction with this module has not been tested and is not recommended.
+The use of other DataGrid modules in conjunction with this module has not been tested and is not recommended.
